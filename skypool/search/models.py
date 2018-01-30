@@ -17,11 +17,11 @@ class Brand(models.Model):
     jd_url = models.CharField(max_length=1000)
     job_url = models.CharField(max_length=1000)
 
-    total_popularity_score = models.FloatField()
-    total_figure_score = models.FloatField()
-    total_market_score = models.FloatField()
-    total_innovation_score = models.FloatField()
-    total_capital_score = models.FloatField()
+    total_popularity_score = models.FloatField(default=0.0)
+    total_figure_score = models.FloatField(default=0.0)
+    total_market_score = models.FloatField(default=0.0)
+    total_innovation_score = models.FloatField(default=0.0)
+    total_capital_score = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.name
@@ -40,11 +40,15 @@ class Article(models.Model):
     source_url = models.CharField(max_length=1000)
     create_time = models.DateTimeField(auto_now=True)
 
+    title = models.CharField(max_length=200)
     content = models.CharField(max_length=20000)
 
-    impression = models.FloatField()
-    engagement = models.FloatField()
-    sentiment = models.FloatField()
+    # 品牌曝光/露出
+    impression = models.FloatField(default=0.0)
+    # 用户互动
+    engagement = models.FloatField(default=0.0)
+    # 情感
+    sentiment = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.source_url
@@ -68,11 +72,11 @@ class Activity(models.Model):
     influence = models.FloatField()
     sentiment = models.FloatField()
 
-    popularity_score = models.FloatField()
-    figure_score = models.FloatField()
-    market_score = models.FloatField()
-    innovation_score = models.FloatField()
-    capital_score = models.FloatField()
+    popularity_score = models.FloatField(default=0.0)
+    figure_score = models.FloatField(default=0.0)
+    market_score = models.FloatField(default=0.0)
+    innovation_score = models.FloatField(default=0.0)
+    capital_score = models.FloatField(default=0.0)
 
 
 class ActivityParam(models.Model):
