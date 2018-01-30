@@ -26,6 +26,12 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
+    def tags(self):
+        return Tag.objects.filter(brand=self)
+
+    def activities(self):
+        return Activity.objects.filter(brand=self)
+
 
 class Tag(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
@@ -43,25 +49,37 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.CharField(max_length=20000)
 
-    # 品牌曝光/露出
+    # 曝光
     impression = models.FloatField(default=0.0)
-    # 用户互动
+    # 互动
     engagement = models.FloatField(default=0.0)
     # 情感
     sentiment = models.FloatField(default=0.0)
 
     def __str__(self):
-        return self.source_url
+        return '%s: %s' % (self.source, self.title)
+
+    def images(self):
+        return ArticleImage.objects.filter(article=self)
+
+    def tags(self):
+        return ArticleTag.objects.filter(article=self)
 
 
 class ArticleImage(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='article_image')    
 
+    def __str__(self):
+        return '%s: %s' % (self.article.title, self.image.id)
+
 
 class ArticleTag(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '%s: %s' % (self.article.title, self.tag.name)
 
 
 class Activity(models.Model):
@@ -78,15 +96,29 @@ class Activity(models.Model):
     innovation_score = models.FloatField(default=0.0)
     capital_score = models.FloatField(default=0.0)
 
+    def __str__(self):
+        return '%s: %s' % (self.brand.name, self.intent)
+
+    def params(self):
+        return ActivityParam.objects.filter(activity=self)
+
+    def articles(self):
+        return ActivityParam.objects.filter(activity=self)
+
 
 class ActivityParam(models.Model):
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     external_url = models.CharField(max_length=1000)
 
+    def __str__(self):
+        return '%s: %s' % (self.activity, self.name)    
+
 
 class ActivityArticle(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return '%s: %s' % (self.activity, self.article.title)
 

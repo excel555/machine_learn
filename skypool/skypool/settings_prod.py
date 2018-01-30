@@ -126,3 +126,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/skypool/static'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/skypool/media'
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "frontend/static"),
+]
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static")
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/static'),
+]
+SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
+SASS_OUTPUT_STYLE = 'compact'
+SASS_PRECISION = 8
+
