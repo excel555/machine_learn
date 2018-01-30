@@ -13,28 +13,24 @@
     <!--Page heading-->
     <div class="row wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
         <div class="col-md-12 mt-5">
-            <form class="waves-effect waves-light search-form" _lpchecked="1" action="{% url 'news-index' %}">
+            <form class="waves-effect waves-light search-form" _lpchecked="1" action="{% url 'news-index' %}" method="post">
                 <div class="md-form">
-                    <input class="mr-sm-2" id="dpurpleForm-email" type="text" placeholder="想搜索点什么" aria-label="Search" style="width: 60%;">
-                    <button type="button" class="btn btn-primary waves-effect waves-light"><i class="fa fa-search fa-3x white-text" style="font-size: 20px;"></i></button>
-
+                    <input class="mr-sm-2" id="dpurpleForm-email" type="text" placeholder="想搜索点什么" aria-label="Search" style="width: 60%;" name="q" value="{{q}}">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="fa fa-search fa-3x white-text" style="font-size: 20px;"></i></button>
                 </div>
+                {% csrf_token %}
             </form>
             <select class="mdb-select colorful-select dropdown-primary" name="brand_name" multiple="multiple" id="brand-name">
-                <option value="all" disabled="" selected="">选择品牌</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-                <option value="4">Option 4</option>
-                <option value="5">Option 5</option>
+                <option value="all" selected="">所有品牌</option>
+                {% for brand in brands %}
+                <option value="{{brand.id}}">{{brand.name}}</option>
+                {% endfor %}
             </select>
             <select class="mdb-select colorful-select dropdown-primary" name="activity_name" multiple="multiple" id="activity-name" style="margin-left: 20px;">
-                <option value="all" disabled="" selected="">选择产品</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-                <option value="4">Option 4</option>
-                <option value="5">Option 5</option>
+                <option value="all" selected="">所有事件</option>
+                {% for intent in intents %}
+                <option value="{{intent.intent}}">{{intent.intent}}</option>
+                {% endfor %}
             </select>
         </div>
     </div>
