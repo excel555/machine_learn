@@ -24,6 +24,13 @@ class NewsShowView(View):
         ctx = {}
         return render(request, self.template_name, ctx)
 
+class ArticlesShowView(View):
+    template_name = "frontend/articles/show.html"
+
+    def get(self, request, *args, **kwargs):
+        ctx = {}
+        return render(request, self.template_name, ctx)
+
 class BrandShowView(View):
     template_name = "frontend/brand/show.html"
 

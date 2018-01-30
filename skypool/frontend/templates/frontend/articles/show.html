@@ -56,41 +56,27 @@
               </div>
           </div>
           <hr>
-          <div class="author-box">
-            <div class="row">
-              <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
-                  <span class="value">98分</span>
-                  <span class="text">知名度</span>
-                </div>
-              </div>
-              <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas emotion-canvas" data-value='0.98'>
-                  <span class="value">98</span>
-                  <span class="text">品牌形象</span>
-                </div>
-              </div>
-              <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
-                  <span class="value">98</span>
-                  <span class="text">市场潜力</span>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
-                  <span class="value">98分</span>
-                  <span class="text">创新性</span>
-                </div>
-              </div>
-              <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
-                  <span class="value">98分</span>
-                  <span class="text">资本性</span>
-                </div>
-              </div>
-            </div>
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
       </div>
       <div class="col-12 col-sm-4">
@@ -164,33 +150,6 @@
     };
 
     brandGraphChart.setOption(option);
-  });
-</script>
-
-<script src="{% static 'frontend/javascript/circle-progress.min.js' %}"></script>
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('.zrelated-canvas').each(function() {
-        $(this).circleProgress({
-            size: 100,
-            thickness: 5,
-            startAngle: Math.PI / 4 * 3,
-            lineCap: 'round',
-            fill: {
-                color: '#3bbf69'
-            },
-            emptyFill: '#FFF'
-        }).on('circle-animation-progress', function(event, progress, stepValue) {
-            $(this).find('.value').html(parseInt(stepValue * 100) + '分');
-        });
-    });
-
-    $('.emotion-canvas').each(function() {
-        $(this).circleProgress({
-        }).on('circle-animation-progress', function(event, progress, stepValue) {
-            $(this).find('.value').html(parseInt(stepValue * 100) + '<i>%</i>');
-        });
-    });
   });
 </script>
 {% endblock %}
