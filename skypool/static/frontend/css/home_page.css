@@ -1,0 +1,42 @@
+/* TEMPLATE STYLES */
+/* Necessary for full page carousel*/
+.full-height, .full-height body, .full-height header, .full-height header .view, .full-height body .view { height: 100%; max-height: 100vh; }
+
+@media (max-width: 740px) { .full-height, .full-height body, .full-height header, .full-height header .view, .full-height body .view { height: 700px; max-height: 700px; } }
+
+@media (min-width: 1000px) and (max-width: 1025px) { .full-height, .full-height body, .full-height header, .full-height header .view, .full-height body .view { height: 770px; max-height: 770px; } }
+
+@media (min-width: 1025px) { .view video { height: 100vh; width: 100%; object-fit: cover; } }
+
+.navbar { background-color: transparent; }
+
+.scrolling-navbar { -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out; -moz-transition: background .5s ease-in-out, padding .5s ease-in-out; transition: background .5s ease-in-out, padding .5s ease-in-out; }
+
+.top-nav-collapse { background-color: #1C2331; }
+
+footer.page-footer { background-color: #1C2331; margin-top: 0; }
+
+@media only screen and (max-width: 768px) { .navbar { background-color: #1C2331; } }
+
+/* Carousel*/
+.flex-center { color: #fff; }
+
+.carousel-caption { height: 100%; padding-top: 7rem; }
+
+.navbar .btn-group .dropdown-menu a:hover { color: #000 !important; }
+
+.navbar .btn-group .dropdown-menu a:active { color: #fff !important; }
+
+.pagination.pg-dark .active .page-link { background-color: #1c2331; }
+
+.search-form-wrap { position: absolute; right: 15%; bottom: 20px; left: 15%; z-index: 10; padding-top: 20px; padding-bottom: 20px; color: #fff; text-align: center; height: 100%; padding-top: 7rem; }
+
+.search-form-wrap .search-form { width: 80%; position: relative; }
+
+.search-form-wrap .search-form .prefix { position: absolute; width: 3rem; font-size: 2rem; padding-top: .5rem; top: 10px; left: 0px; }
+
+.search-form-wrap .search-form input { padding-left: 60px; color: #FFF; }
+
+.search-form-wrap .search-form input::-webkit-input-placeholder { color: #FFF; text-transform: uppercase; }
+
+/*# sourceMappingURL=../../../../../../../../../../static/frontend/css/home_page.css.map */

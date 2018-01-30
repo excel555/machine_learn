@@ -1,0 +1,31 @@
+.data-box { display: inline-block; vertical-align: top; text-align: center; margin-top: 10px; }
+
+.data-box:first-child { margin-left: 20px; }
+
+.data-box:last-child { margin-right: 20px; }
+
+.data-box .zcanvas { position: relative; text-align: center; }
+
+.data-box .zcanvas canvas { display: block; max-width: 100%; max-height: 100%; margin-left: auto; margin-right: auto; margin-bottom: 10px; }
+
+.data-box .zcanvas .value { position: absolute; top: 20px; bottom: 0; left: 0; right: 0; font-size: 16px; line-height: 60px; text-align: center; }
+
+.chip { display: inline-block; height: 32px; font-size: 13px; font-weight: 500; color: rgba(0, 0, 0, 0.6); line-height: 32px; padding: 0 12px; border-radius: 16px; background-color: #eceff1; margin-bottom: 1rem; margin-right: 1rem; }
+
+.chip img { float: left; margin: 0 8px 0 -12px; height: 32px; width: 32px; border-radius: 50%; }
+
+.chip .close { cursor: pointer; float: right; font-size: 16px; line-height: 32px; padding-left: 8px; -webkit-transition: all .1s linear; transition: all .1s linear; }
+
+.chips { outline: 0; box-shadow: none; border: none; border-bottom: 1px solid #bdbdbd; margin-bottom: 30px; min-height: 45px; padding-bottom: 1rem; -webkit-transition: all .3s; transition: all .3s; }
+
+.chips.focus { border-bottom: 1px solid #4285f4; box-shadow: 0 1px 0 0 #4285f4; }
+
+.chips:hover { cursor: text; }
+
+.chips .tag.selected { border-bottom: 1px solid #4285f4; color: #fff; }
+
+.chips .input { display: inline-block; background: 0 0; border: 0; outline: 0; padding: 0 !important; width: 120px !important; color: rgba(0, 0, 0, 0.6); font-size: 13px; font-weight: 500; height: 32px; margin-right: 20px; line-height: 32px; }
+
+.chips .input:focus { border: 0 !important; box-shadow: none !important; }
+
+/*# sourceMappingURL=../../../../../../../../../../static/frontend/css/news_index.css.map */

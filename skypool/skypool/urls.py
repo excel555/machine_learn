@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from frontend import views as front_views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^$', front_views.HomeView.as_view(), name="home-page"),
+    url(r'^home/$', front_views.HomeView.as_view(), name="home-page"),
+    url(r'^news/index/$', front_views.NewsIndexView.as_view(), name="news-index"),
+    url(r'^news/(\d+)/$', front_views.NewsShowView.as_view(), name="news-show"),
+    url(r'^brand/(\w+)/$', front_views.BrandShowView.as_view(), name="brand-show"),
 ]

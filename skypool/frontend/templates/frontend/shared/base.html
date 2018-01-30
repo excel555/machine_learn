@@ -1,0 +1,45 @@
+{% load static %}
+{% load sass_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/mdbootstrap/4.4.5/css/mdb.css" rel="stylesheet">
+
+    <!-- Title -->
+    {% block title %}
+    <title>搜索</title>
+    {% endblock %}
+    {% block keywords %}
+    <meta name="keywords" content="原创,新闻服务,创业,互联网创业,互联网创业项目">
+    <meta name="description" content="原创,新闻服务,创业,互联网创业,互联网创业项目">
+    {% endblock %}
+  </head>
+  <body>
+    <!-- Header -->
+    {% block header %}
+    {% endblock %}
+    <!-- Content -->
+    {% block content %}
+    {% endblock %}
+
+    {% csrf_token %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/mdbootstrap/4.4.5/js/mdb.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.0.2/echarts.min.js"></script>
+    <!-- Icons -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!-- Javascript -->
+    {% block page_javascript %}
+    {% endblock %}
+  </body>
+</html>

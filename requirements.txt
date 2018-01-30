@@ -1,2 +1,5 @@
 django == 2.0.1
 pymysql
+libsass
+django-compressor
+django-sass-processor

@@ -1,0 +1,116 @@
+{% extends "frontend/shared/base.html" %}
+
+{% load static %}
+{% load sass_tags %}
+
+{% block header %}
+{% include "frontend/shared/_header.html" with bgc="bg-black" %}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% sass_src 'frontend/css/news_index.scss' %}">
+<link rel="stylesheet" type="text/css" href="{% sass_src 'frontend/css/brand_show.scss' %}">
+<script src="https://cdn.bootcss.com/echarts/4.0.2/echarts.min.js"></script>
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <!--Avatar-->
+        <div class="col-12 col-sm-8">
+            <div class="row">
+                <!--Avatar-->
+                <div class="col-12 col-sm-2">
+                    <a href="/brand/1" title="">
+                      <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
+                      <div class="mask waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Author Data-->
+                <div class="col-12 col-sm-10">
+                    <p>
+                        <strong>John Doe</strong>
+                    </p>
+                    <div class="personal-sm">
+                        <a class="email-ic">
+                            <i class="fa fa-home"> </i>
+                        </a>
+                        <a class="fb-ic">
+                            <i class="fa fa-facebook"> </i>
+                        </a>
+                        <a class="tw-ic">
+                            <i class="fa fa-twitter"> </i>
+                        </a>
+                        <a class="gplus-ic">
+                            <i class="fa fa-google-plus"> </i>
+                        </a>
+                        <a class="li-ic">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                        <a class="email-ic">
+                            <i class="fa fa-envelope-o"> </i>
+                        </a>
+                    </div>
+                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    <div>
+                      <div class="chip">
+                          <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
+                      </div>
+                      <div class="chip">
+                          <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
+                      </div>
+                    </div>
+                </div>
+            </div>
+            {% include "frontend/partials/_products.html" %}
+        </div>
+        <div class="col-12 col-sm-4">
+            <section class="text-left">
+
+                <!--Author box-->
+                <div class="author-box">
+                    <!--Name-->
+                    <h3 class="h3-responsive text-center">About author</h3>
+                    <hr>
+                    <div class="row">
+                        <!--Avatar-->
+                        <div class="col-12 col-sm-4">
+                            <a href="/brand/1" title="">
+                              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
+                              <div class="mask waves-effect waves-light"></div>
+                            </a>
+                        </div>
+                        <!--Author Data-->
+                        <div class="col-12 col-sm-8">
+                            <p>
+                                <strong>John Doe</strong>
+                            </p>
+                            <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                        </div>
+                    </div>
+                    <hr class="extra-margin my-2">
+                    <div class="row">
+                        <!--Avatar-->
+                        <div class="col-12 col-sm-4">
+                            <a href="/brand/1" title="">
+                              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
+                              <div class="mask waves-effect waves-light"></div>
+                            </a>
+                        </div>
+                        <!--Author Data-->
+                        <div class="col-12 col-sm-8">
+                            <p>
+                                <strong>John Doe</strong>
+                            </p>
+                            <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Author box-->
+
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_javascript %}
+{% include "frontend/partials/_brand_show_js.html" %}
+{% endblock %}

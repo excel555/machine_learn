@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'search',
 
+    'search',
+    'sass_processor',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "frontend/static"),
+]
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static")
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/static'),
+]
+SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
+SASS_OUTPUT_STYLE = 'compact'
+SASS_PRECISION = 8
