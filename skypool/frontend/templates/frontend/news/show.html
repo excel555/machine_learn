@@ -81,46 +81,12 @@
       </div>
       <div class="col-12 col-sm-4">
           <section class="text-left">
-
               <!--Author box-->
-              <div class="author-box">
-                  <!--Name-->
-                  <h6 class="h6-responsive text-center">相似文章推荐</h6>
-                  <hr>
-                  <div class="row">
-                      <!--Avatar-->
-                      <div class="col-12 col-sm-4">
-                          <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="Material Design for Bootstrap - example photo">
-                      </div>
-                      <!--Author Data-->
-                      <div class="col-12 col-sm-8">
-                          <p>
-                              <strong>John Doe</strong>
-                          </p>
-                          <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                      </div>
-                  </div>
-                  <hr class="extra-margin my-2">
-                  <div class="row">
-                      <!--Avatar-->
-                      <div class="col-12 col-sm-4">
-                          <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="Material Design for Bootstrap - example photo">
-                      </div>
-                      <!--Author Data-->
-                      <div class="col-12 col-sm-8">
-                          <p>
-                              <strong>John Doe</strong>
-                          </p>
-                          <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                      </div>
-                  </div>
-              </div>
+              {% include "frontend/partials/_relative_articles.html" %}
               <!--/.Author box-->
-              <div class="author-box my-2">
-                  <h6 class="h6-responsive text-center">品牌画像</h6>
-                  <hr>
-                  <div id="brandGraphChart" style="width: 100%;height: 300px;"></div>
-              </div>
+              <!-- Brand Figure -->
+              {% include "frontend/partials/_brand_figure.html" %}
+              <!--/ .Brand Figure -->
           </section>
       </div>
     </div>
@@ -132,42 +98,55 @@
   $(document).ready(function () {
     var brandGraphChart = echarts.init(document.getElementById('brandGraphChart'));
     var option = {
-        // title : {
-        //     text: '某站点用户访问来源',
-        //     subtext: '纯属虚构',
-        //     x:'center'
+        // title: {
+        //     text: '基础雷达图'
         // },
-        tooltip : {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
+        tooltip: {},
         legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            data: ['可口可乐']
         },
-        series : [
-            {
-                name: '访问来源',
-                type: 'pie',
-                radius : '55%',
-                center: ['50%', '60%'],
-                data:[
-                    {value:335, name:'直接访问'},
-                    {value:310, name:'邮件营销'},
-                    {value:234, name:'联盟广告'},
-                    {value:135, name:'视频广告'},
-                    {value:1548, name:'搜索引擎'}
-                ],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
+        radar: {
+            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+               }
+            },
+            indicator: [
+               { name: '曝光度', max: 6500},
+               { name: '美誉度', max: 16000},
+               { name: '销售量', max: 3000},
+               { name: '互动', max: 3800},
+               { name: '知名度', max: 5200},
+               { name: '流行度', max: 2500}
+            ]
+        },
+        series: [{
+            name: '可口可乐',
+            type: 'radar',
+            areaStyle: {normal: {
+                                opacity: 0.9,
+                                color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [
+                                    {
+                                        color: '#B8D3E4',
+                                        offset: 0
+                                    },
+                                    {
+                                        color: '#72ACD1',
+                                        offset: 1
+                                    }
+                                ])
+                            }},
+            data : [
+                {
+                    value : [4300, 10000, 2800, 3500, 5000, 1900],
+                    name : '可口可乐'
                 }
-            }
-        ]
+            ]
+        }]
     };
 
     brandGraphChart.setOption(option);

@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "../../../Users/konglingkai/machine_learn/skypool/frontend/static/frontend/css/brand_show.css",
+	"file": "../../../Users/hbf/Develop/myself/machine_learn/skypool/frontend/static/frontend/css/brand_show.css",
 	"sources": [
-		"../../../Users/konglingkai/machine_learn/skypool/frontend/static/frontend/css/brand_show.scss"
+		"../../../Users/hbf/Develop/myself/machine_learn/skypool/frontend/static/frontend/css/brand_show.scss"
 	],
 	"names": [],
 	"mappings": "AAAA,AAAA,WAAW,CAAC,EACR,OAAO,EAAE,IAAI,EACb,aAAa,EAAE,GAAG,EAClB,UAAU,EAAE,CAAC,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,mBAAe,EAAE,CAAC,CAAC,GAAG,CAAC,IAAI,CAAC,CAAC,CAAC,mBAAe,GACxE"
