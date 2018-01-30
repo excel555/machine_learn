@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'search',
+    'sass_processor',
+    'frontend',
 ]
 
 MIDDLEWARE = [
