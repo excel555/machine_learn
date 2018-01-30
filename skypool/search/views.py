@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+@csrf_exempt
+def push_data(request):
+    pass
+
+
+    
