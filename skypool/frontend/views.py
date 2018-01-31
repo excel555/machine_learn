@@ -46,7 +46,7 @@ class NewsIndexView(View):
         ctx['activities'] = activities
         ctx['paginator'] = paginator
         ctx['page_name'] = 'news-index'
-        ctx['brand_id'] = brand_id
+        ctx['brand_id'] = [int(_) for _ in brand_id]
         ctx['intent_names'] = intent
 
         return render(request, self.template_name, ctx)
