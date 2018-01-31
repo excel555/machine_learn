@@ -1,5 +1,5 @@
 <div class="author-box">
-    <h6 class="h6-responsive text-center">相似文章推荐</h6>
+    <h6 class="h6-responsive text-center">相关文章推荐</h6>
     <hr>
     {% for article in articles %}
     <div class="row article-row-wrap">
@@ -15,6 +15,7 @@
                 <a href="{% url 'article-show' article.id %}" title=""><strong>{{article.title}}</strong></a>
             </p>
             <p style="font-size: 10px;">{{article.content|truncatechars:60}}</p>
+            <p style="font-size: 10px;"><a href="{{article.source_url}}" target="_blank">原文链接</a></p>
         </div>
     </div>
     {% if not forloop.last %}

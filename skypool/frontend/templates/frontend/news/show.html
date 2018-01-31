@@ -22,12 +22,12 @@
               <!--Author Data-->
               <div class="col-12 col-sm-10">
                   <p>
-                      <strong>{{activity.intent}}</strong>
+                      <strong>{{activity.articles.0.title}}</strong>
                   </p>
                   <div class="personal-sm">
                       <p>{{activity.create_time}}</p>
                   </div>
-                  <p style="overflow: hidden;">{{activity.brand.info}}</p>
+                  <p style="overflow: hidden;">{{activity.intent}}</p>
                   <div>
                     {% for name in activity.distinct_params %}
                     <div class="chip">
@@ -50,12 +50,6 @@
                 <div class="zcanvas emotion-canvas" data-value='{{activity.sentiment}}'>
                   <span class="value">98分</span>
                   <span class="text">情感</span>
-                </div>
-              </div>
-              <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='{{activity.innovation_score}}'>
-                  <span class="value">98分</span>
-                  <span class="text">创新性</span>
                 </div>
               </div>
             </div>
@@ -84,6 +78,12 @@
                 <div class="zcanvas zrelated-canvas" data-value='{{activity.capital_score}}'>
                   <span class="value">98分</span>
                   <span class="text">资本性</span>
+                </div>
+              </div>
+              <div class="data-box col-12 col-sm-3">
+                <div class="zcanvas zrelated-canvas" data-value='{{activity.innovation_score}}'>
+                  <span class="value">98分</span>
+                  <span class="text">创新性</span>
                 </div>
               </div>
             </div>
