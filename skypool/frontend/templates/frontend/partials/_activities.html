@@ -17,7 +17,7 @@
             <h2 class="post-title font-bold">{{activity.articles.0.title|truncatechars:20}}</h2>
         </a>
         <h6 class="dark-grey-text font-bold font-small">{{activity.create_time}}</h6>
-        <p class="my-4 dark-grey-text">{{activity.intent}}</p>
+        <p class="my-4 dark-grey-text">影响事件：{{activity.intent}}</p>
         <div>
           {% for name in activity.distinct_params %}
           <div class="chip">
