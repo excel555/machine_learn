@@ -19,13 +19,13 @@
                     <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="fa fa-search fa-3x white-text" style="font-size: 20px;"></i></button>
                 </div>
                 <div>
-                    <select class="mdb-select colorful-select dropdown-primary" name="brand_ids[]" multiple="multiple" id="brand-name">
+                    <select class="mdb-select colorful-select dropdown-primary" name="brand_id" multiple="multiple" id="brand-name">
                         <option value="all" selected="">所有品牌</option>
                         {% for brand in brands %}
                         <option value="{{brand.id}}">{{brand.name}}</option>
                         {% endfor %}
                     </select>
-                    <select class="mdb-select colorful-select dropdown-primary" name="intent_names[]" multiple="multiple" id="activity-name" style="margin-left: 20px;">
+                    <select class="mdb-select colorful-select dropdown-primary" name="intent_name" multiple="multiple" id="activity-name" style="margin-left: 20px;">
                         <option value="all" selected="">所有事件</option>
                         {% for intent in intents %}
                         <option value="{{intent.intent}}">{{intent.intent}}</option>

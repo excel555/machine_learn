@@ -18,8 +18,8 @@ class NewsIndexView(View):
     def get(self, request, *args, **kwargs):
         ctx = {}
         ctx['q'] = q = request.GET.get('q', '')
-        ctx['brand_id'] = brand_id = request.GET.get('brand_ids', '')
-        ctx['intent'] = intent = request.GET.get('intent_names', '')
+        ctx['brand_id'] = brand_id = request.GET.getlist('brand_id', '')
+        ctx['intent'] = intent = request.GET.getlist('intent_name', '')
         ctx['brands'] = Brand.objects.all()
         ctx['intents'] = Activity.objects.exclude(intent='None').all().values('intent').distinct()
 
