@@ -19,11 +19,22 @@ class NewsIndexView(View):
         ctx = {}
         ctx['q'] = q = request.GET.get('q', '')
         ctx['brand_id'] = brand_id = request.GET.get('brand_ids', '')
-        ctx['intent'] = intent = request.GET.get('intent_ids', '')
+        ctx['intent'] = intent = request.GET.get('intent_names', '')
         ctx['brands'] = Brand.objects.all()
         ctx['intents'] = Activity.objects.exclude(intent='None').all().values('intent').distinct()
 
-        activities = Activity.objects.all().order_by('create_time')
+        activities = Activity.objects.all()
+
+        if brand_id:
+            activities = activities.filter(brand__id__in=[_ for _ in brand_id if _ != 'all'])
+
+        if intent:
+            activities = activities.filter(intent__in=[_ for _ in intent if _ != 'all'])
+
+        if q:
+            activities = activities.filter(brand__name__contains=q)
+
+        activities = activities.order_by('create_time')
         paginator = Paginator(activities, 15)
         page = request.GET.get('page', 0)
         if page == 0:

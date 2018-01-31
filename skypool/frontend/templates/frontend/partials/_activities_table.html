@@ -9,7 +9,7 @@
         <h6 class="dark-grey-text font-bold font-small">{{activity.create_time}}</h6>
         <p class="my-4 dark-grey-text">{{activity.brand.info|truncatechars:89}}</p>
         <div>
-          {% for var1 in activity.params %}
+          {% for var1 in activity.distinct_params %}
           <div class="chip">
               <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
           </div>

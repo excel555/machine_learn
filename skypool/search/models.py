@@ -105,6 +105,9 @@ class Activity(models.Model):
     def params(self):
         return ActivityParam.objects.filter(activity=self)
 
+    def distinct_params(self):
+        return list(set([_.name for _ in ActivityParam.objects.filter(activity=self)]))
+
     def articles(self):
         return [_.article for _ in ActivityArticle.objects.filter(activity=self)]
 
