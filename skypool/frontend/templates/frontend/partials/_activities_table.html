@@ -1,0 +1,41 @@
+{% for activity in activities %}
+<!--First row-->
+<div class="row mt-5 wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
+    <!--Post excerpt-->
+    <div class="col-12 col-sm-6">
+        <a href="{% url 'news-show' activity.id %}">
+            <h2 class="post-title font-bold">{{activity.intent}}</h2>
+        </a>
+        <h6 class="dark-grey-text font-bold font-small">{{activity.create_time}}</h6>
+        <p class="my-4 dark-grey-text">{{activity.brand.info|truncatechars:89}}</p>
+        <div>
+          {% for var1 in activity.params %}
+          <div class="chip">
+              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    <!--/.Post excerpt-->
+    <div class="col-12 col-sm-3">
+        <div class="data-box">
+          <div class="zcanvas zrelated-canvas" data-value='0.98'>
+            <span class="value">98分</span>
+            <span class="text">影响力</span>
+          </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-3">
+        <div class="data-box">
+          <div class="zcanvas emotion-canvas" data-value='0.98'>
+            <span class="value">积极</span>
+            <span class="text">积极情绪</span>
+          </div>
+        </div>
+    </div>
+</div>
+<!--/.First row-->
+{% if not forloop.last %}
+<hr class="extra-margin my-3">
+{% endif %}
+{% endfor %}

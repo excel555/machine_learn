@@ -71,7 +71,7 @@ class Article(models.Model):
 
 class ArticleImage(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='article_image')    
+    image = models.ImageField(upload_to='article_image')
 
     def __str__(self):
         return '%s: %s' % (self.article.title, self.image.id)
@@ -115,7 +115,7 @@ class ActivityParam(models.Model):
     external_url = models.CharField(max_length=1000)
 
     def __str__(self):
-        return '%s: %s' % (self.activity, self.name)    
+        return '%s: %s' % (self.activity, self.name)
 
 
 class ActivityArticle(models.Model):

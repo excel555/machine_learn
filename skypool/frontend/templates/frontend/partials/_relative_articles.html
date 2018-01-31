@@ -1,0 +1,25 @@
+<div class="author-box">
+    <h6 class="h6-responsive text-center">相似文章推荐</h6>
+    <hr>
+    {% for article in articles %}
+    <div class="row article-row-wrap">
+        <!--Avatar-->
+        <!-- <div class="col-12 col-sm-4">
+            <a href="#" title="">
+              <img src="{{article.cover.url}}" class="img-fluid rounded-circle z-depth-2" alt="">
+            </a>
+        </div> -->
+        <!--Author Data-->
+        <div class="col-12 col-sm-12">
+            <p>
+                <a href="{% url 'article-show' article.id %}" title=""><strong>{{article.title}}</strong></a>
+            </p>
+            <p style="font-size: 10px;">{{article.content|truncatechars:60}}</p>
+        </div>
+    </div>
+    {% if not forloop.last %}
+    <hr class="extra-margin my-2">
+    {% endif %}
+    {% endfor %}
+
+</div>

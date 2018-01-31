@@ -18,92 +18,72 @@
             <div class="row">
                 <!--Avatar-->
                 <div class="col-12 col-sm-2">
-                    <a href="/brand/1" title="">
-                      <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
+                    <a href="{% url 'brand-show' brand_obj.id }}" title="">
+                      <img src="{{ brand_obj.logo.url }}" class="img-fluid rounded-circle z-depth-2" alt="">
                       <div class="mask waves-effect waves-light"></div>
                     </a>
                 </div>
                 <!--Author Data-->
                 <div class="col-12 col-sm-10">
                     <p>
-                        <strong>John Doe</strong>
+                        <strong>{{brand_obj.name}}</strong>
                     </p>
                     <div class="personal-sm">
-                        <a class="email-ic">
+                        <a class="email-ic" href="#">
                             <i class="fa fa-home"> </i>
                         </a>
-                        <a class="fb-ic">
+                        <a class="fb-ic" href="#">
                             <i class="fa fa-facebook"> </i>
                         </a>
-                        <a class="tw-ic">
+                        <a class="tw-ic" href="#">
                             <i class="fa fa-twitter"> </i>
                         </a>
-                        <a class="gplus-ic">
+                        <a class="gplus-ic" href="#">
                             <i class="fa fa-google-plus"> </i>
                         </a>
-                        <a class="li-ic">
+                        <a class="li-ic" href="#">
                             <i class="fa fa-linkedin"> </i>
                         </a>
-                        <a class="email-ic">
+                        <a class="email-ic" href="#">
+                            <i class="fa fa-envelope-o"> </i>
+                        </a>
+                        <a class="li-ic" href="#">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                        <a class="email-ic" href="#">
                             <i class="fa fa-envelope-o"> </i>
                         </a>
                     </div>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    <p style="overflow: hidden;">{{brand_obj.info}}</p>
                     <div>
-                      <div class="chip">
+                      <!-- <div class="chip">
                           <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
                       </div>
                       <div class="chip">
                           <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
-                      </div>
+                      </div> -->
                     </div>
                 </div>
             </div>
-            {% include "frontend/partials/_products.html" %}
+            <hr>
+            <div class="author-box">
+                <h6 class="h6-responsive text-left">所有事件</h6>
+                <hr>
+                {% include "frontend/partials/_activities_table.html" %}
+                <hr>
+                <!--Pagination-->
+                {% include "frontend/partials/_pagination.html" %}
+            </div>
         </div>
         <div class="col-12 col-sm-4">
             <section class="text-left">
 
-                <!--Author box-->
-                <div class="author-box">
-                    <!--Name-->
-                    <h3 class="h3-responsive text-center">About author</h3>
-                    <hr>
-                    <div class="row">
-                        <!--Avatar-->
-                        <div class="col-12 col-sm-4">
-                            <a href="/brand/1" title="">
-                              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
-                              <div class="mask waves-effect waves-light"></div>
-                            </a>
-                        </div>
-                        <!--Author Data-->
-                        <div class="col-12 col-sm-8">
-                            <p>
-                                <strong>John Doe</strong>
-                            </p>
-                            <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                        </div>
-                    </div>
-                    <hr class="extra-margin my-2">
-                    <div class="row">
-                        <!--Avatar-->
-                        <div class="col-12 col-sm-4">
-                            <a href="/brand/1" title="">
-                              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
-                              <div class="mask waves-effect waves-light"></div>
-                            </a>
-                        </div>
-                        <!--Author Data-->
-                        <div class="col-12 col-sm-8">
-                            <p>
-                                <strong>John Doe</strong>
-                            </p>
-                            <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                        </div>
-                    </div>
-                </div>
-                <!--/.Author box-->
+              <!-- Brand Figure -->
+              {% include "frontend/partials/_brand_figure.html" %}
+              <!--/ .Brand Figure -->
+              <!--Author box-->
+              {% include "frontend/partials/_relative_articles.html" %}
+              <!--/.Author box-->
 
             </section>
         </div>
@@ -112,5 +92,88 @@
 {% endblock %}
 
 {% block page_javascript %}
-{% include "frontend/partials/_brand_show_js.html" %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    var brandGraphChart = echarts.init(document.getElementById('brandGraphChart'));
+    var option = {
+        // title: {
+        //     text: '基础雷达图'
+        // },
+        tooltip: {},
+        legend: {
+            data: ['{{brand.name}}']
+        },
+        radar: {
+            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+               }
+            },
+            indicator: [
+               { name: '曝光度', max: 10},
+               { name: '美誉度', max: 10},
+               { name: '销售量', max: 10},
+               { name: '互动', max: 10},
+               { name: '知名度', max: 10},
+               { name: '流行度', max: 10}
+            ]
+        },
+        series: [{
+            name: '可口可乐',
+            type: 'radar',
+            areaStyle: {normal: {
+                                opacity: 0.9,
+                                color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [
+                                    {
+                                        color: '#B8D3E4',
+                                        offset: 0
+                                    },
+                                    {
+                                        color: '#72ACD1',
+                                        offset: 1
+                                    }
+                                ])
+                            }},
+            data : [
+                {
+                    value : {{brand.figure}},
+                    name : "{{brand.name}}",
+                }
+            ]
+        }]
+    };
+
+    brandGraphChart.setOption(option);
+  });
+</script>
+<script src="{% static 'frontend/javascript/circle-progress.min.js' %}"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.zrelated-canvas').each(function() {
+        $(this).circleProgress({
+            size: 100,
+            thickness: 5,
+            startAngle: Math.PI / 4 * 3,
+            lineCap: 'round',
+            fill: {
+                color: '#3bbf69'
+            },
+            emptyFill: '#FFF'
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('.value').html(parseInt(stepValue * 100) + '分');
+        });
+    });
+
+    $('.emotion-canvas').each(function() {
+        $(this).circleProgress({
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).find('.value').html(parseInt(stepValue * 100) + '<i>%</i>');
+        });
+    });
+  });
+</script>
 {% endblock %}

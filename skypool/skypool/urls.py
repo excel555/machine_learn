@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', front_views.HomeView.as_view(), name="home-page"),
     url(r'^home/$', front_views.HomeView.as_view(), name="home-page"),
-    url(r'^news/index/$', front_views.NewsIndexView.as_view(), name="news-index"),
-    url(r'^news/(\d+)/$', front_views.NewsShowView.as_view(), name="news-show"),
-    url(r'^brand/(\w+)/$', front_views.BrandShowView.as_view(), name="brand-show"),
+    url(r'^activities/index/$', front_views.NewsIndexView.as_view(), name="news-index"),
+    url(r'^activities/(\d+)/$', front_views.NewsShowView.as_view(), name="news-show"),
+    url(r'^brand/(\d+)/$', front_views.BrandShowView.as_view(), name="brand-show"),
+    url(r'^ArticlesShowView/(\d+)/$', front_views.ArticlesShowView.as_view(), name="article-show"),
 ]

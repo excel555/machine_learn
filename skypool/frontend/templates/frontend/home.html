@@ -12,9 +12,10 @@
   <div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="search-form-wrap">
         <div class="flex-center" style="height: 60%;">
-          <form class="waves-effect waves-light search-form" _lpchecked="1" action="/news/index/">
+          <form class="waves-effect waves-light search-form" _lpchecked="1" action="{% url 'news-index' %}" method="get">
               <i class="fa fa-search fa-lg prefix"></i>
-              <input class="form-control mr-sm-2" type="text" placeholder="想搜索点什么" aria-label="Search">
+              <input class="form-control mr-sm-2" type="text" placeholder="想搜索点什么" aria-label="Search" name="q">
+              {% csrf_token %}
           </form>
         </div>
       </div>
