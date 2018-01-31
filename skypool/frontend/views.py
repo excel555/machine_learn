@@ -96,7 +96,7 @@ class BrandShowView(View):
         ctx["brand"] = {}
         ctx["brand"]["name"] = brand.name
         ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score]
-        activities = Activity.objects.all().order_by('create_time')
+        activities = Activity.objects.exclude(intent='None').all().order_by('create_time')
 
         paginator = Paginator(activities, 15)
         page = request.GET.get('page', 0)
