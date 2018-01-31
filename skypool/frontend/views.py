@@ -48,7 +48,7 @@ class NewsShowView(View):
         brand = activity.brand
         ctx["brand"] = {}
         ctx["brand"]["name"] = brand.name
-        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score,brand.total_market_score]
+        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score]
         return render(request, self.template_name, ctx)
 
 class ArticlesShowView(View):
@@ -64,7 +64,7 @@ class ArticlesShowView(View):
         ctx["brand"] = {}
         ctx["brand"]["obj"] = brand
         ctx["brand"]["name"] = brand.name
-        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score,brand.total_market_score]
+        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score]
         return render(request, self.template_name, ctx)
 
 class BrandShowView(View):
@@ -78,7 +78,7 @@ class BrandShowView(View):
         ctx["articles"] = articles
         ctx["brand"] = {}
         ctx["brand"]["name"] = brand.name
-        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score,brand.total_market_score]
+        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score]
         activities = Activity.objects.all().order_by('create_time')
         paginator = Paginator(activities, 2)
         page = request.GET.get('page', 0)
