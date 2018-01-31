@@ -60,10 +60,13 @@ class Article(models.Model):
         return '%s: %s' % (self.source, self.title)
 
     def images(self):
-        return ArticleImage.objects.filter(article=self)
+        return [_.image for _ in ArticleImage.objects.filter(article=self)]
 
     def tags(self):
-        return ArticleTag.objects.filter(article=self)
+        return [_.tag for _ in ArticleTag.objects.filter(article=self)]
+
+    def activities(self):
+        return [_.activity for _ in ActivityArticle.objects.filter(article=self)]
 
 
 class ArticleImage(models.Model):
@@ -103,7 +106,7 @@ class Activity(models.Model):
         return ActivityParam.objects.filter(activity=self)
 
     def articles(self):
-        return ActivityParam.objects.filter(activity=self)
+        return [_.article for _ in ActivityArticle.objects.filter(activity=self)]
 
 
 class ActivityParam(models.Model):
