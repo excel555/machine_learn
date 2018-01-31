@@ -24,7 +24,7 @@ class NewsIndexView(View):
         ctx['intents'] = Activity.objects.all().values('intent').distinct()
 
         activities = Activity.objects.all().order_by('create_time')
-        paginator = Paginator(activities, 2)
+        paginator = Paginator(activities, 25)
         page = request.GET.get('page', 0)
         if page == 0:
             page = 1
@@ -80,7 +80,7 @@ class BrandShowView(View):
         ctx["brand"]["name"] = brand.name
         ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score]
         activities = Activity.objects.all().order_by('create_time')
-        paginator = Paginator(activities, 2)
+        paginator = Paginator(activities, 25)
         page = request.GET.get('page', 0)
         if page == 0:
             page = 1
