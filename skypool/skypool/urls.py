@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^activities/index/$', front_views.NewsIndexView.as_view(), name="news-index"),
     url(r'^activities/(\d+)/$', front_views.NewsShowView.as_view(), name="news-show"),
     url(r'^brand/(\d+)/$', front_views.BrandShowView.as_view(), name="brand-show"),
-    url(r'^ArticlesShowView/(\d+)/$', front_views.ArticlesShowView.as_view(), name="article-show"),
+    url(r'^articles/(\d+)/$', front_views.ArticlesShowView.as_view(), name="article-show"),
 ]
