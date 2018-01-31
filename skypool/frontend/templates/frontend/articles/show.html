@@ -27,10 +27,11 @@
                       <strong>{{article.title}}</strong>
                   </p>
                   <div class="personal-sm">
-                      <a class="email-ic" href="{{article.source_url}}">
+                      <a class="email-ic" href="{{article.source_url}}" target="_blank">
                           <i class="fa fa-home"> </i>
+                          <span>原文链接</span>
                       </a>
-                      <a class="fb-ic">
+                      <!-- <a class="fb-ic">
                           <i class="fa fa-facebook"> </i>
                       </a>
                       <a class="tw-ic">
@@ -44,7 +45,7 @@
                       </a>
                       <a class="email-ic">
                           <i class="fa fa-envelope-o"> </i>
-                      </a>
+                      </a> -->
                   </div>
                   <div>
                     <p>{{article.create_time}}</p>
@@ -59,6 +60,7 @@
               </div>
           </div>
           <hr>
+          <h5></h5>
           <div class="row">
             <div class="col-12 col-sm-3">
                 <div class="data-box">
@@ -177,7 +179,12 @@
             },
             emptyFill: '#f57c00'
         }).on('circle-animation-progress', function(event, progress, stepValue) {
-            $(this).find('.value').html(parseInt(stepValue * 100) + '分');
+            var value = parseInt(stepValue)
+            if (value > 1) {
+              $(this).find('.value').html(parseInt(stepValue) + '');
+            } else {
+              $(this).find('.value').html(parseInt(stepValue * 100) + '');
+            }
         });
     });
 
