@@ -54,8 +54,17 @@ class NewsShowView(View):
 class ArticlesShowView(View):
     template_name = "frontend/articles/show.html"
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, id):
         ctx = {}
+        articles = Article.objects.exclude(id=id).all()[:5]
+        ctx["articles"] = articles
+        article = Article.objects.filter(id=id).first()
+        ctx["article"] = article
+        brand = Brand.objects.first()
+        ctx["brand"] = {}
+        ctx["brand"]["obj"] = brand
+        ctx["brand"]["name"] = brand.name
+        ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score,brand.total_market_score]
         return render(request, self.template_name, ctx)
 
 class BrandShowView(View):
