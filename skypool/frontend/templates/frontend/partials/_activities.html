@@ -14,14 +14,14 @@
     <!--Post excerpt-->
     <div class="col-12 col-sm-6">
         <a href="{% url 'news-show' activity.id %}">
-            <h2 class="post-title font-bold">{{activity.intent}}</h2>
+            <h2 class="post-title font-bold">{{activity.articles.0.title|truncatechars:20}}</h2>
         </a>
         <h6 class="dark-grey-text font-bold font-small">{{activity.create_time}}</h6>
-        <p class="my-4 dark-grey-text">{{activity.brand.info|truncatechars:89}}</p>
+        <p class="my-4 dark-grey-text">{{activity.intent}}</p>
         <div>
           {% for var1 in activity.params %}
           <div class="chip">
-              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> {{var1.name}}
+              <span>{{var1.name}}</span>
           </div>
           {% endfor %}
         </div>

@@ -31,7 +31,7 @@
                   <div>
                     {% for var1 in activity.params %}
                     <div class="chip">
-                        <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
+                        <span>{{var1.name}}</span>
                     </div>
                     {% endfor %}
                   </div>
@@ -162,7 +162,7 @@
             },
             emptyFill: '#f57c00'
         }).on('circle-animation-progress', function(event, progress, stepValue) {
-            $(this).find('.value').html(parseInt(stepValue * 100) + '分');
+            $(this).find('.value').html(parseInt(stepValue * 100) + '');
         });
     });
 

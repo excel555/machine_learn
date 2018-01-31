@@ -21,10 +21,10 @@ class NewsIndexView(View):
         ctx['brand_id'] = brand_id = request.GET.get('brand_ids', '')
         ctx['intent'] = intent = request.GET.get('intent_ids', '')
         ctx['brands'] = Brand.objects.all()
-        ctx['intents'] = Activity.objects.all().values('intent').distinct()
+        ctx['intents'] = Activity.objects.exclude(intent='None').all().values('intent').distinct()
 
         activities = Activity.objects.all().order_by('create_time')
-        paginator = Paginator(activities, 25)
+        paginator = Paginator(activities, 15)
         page = request.GET.get('page', 0)
         if page == 0:
             page = 1
@@ -80,7 +80,7 @@ class BrandShowView(View):
         ctx["brand"]["name"] = brand.name
         ctx["brand"]["figure"] = [brand.total_popularity_score,brand.total_figure_score,brand.total_market_score,brand.total_innovation_score,brand.total_capital_score]
         activities = Activity.objects.all().order_by('create_time')
-        paginator = Paginator(activities, 25)
+        paginator = Paginator(activities, 15)
         page = request.GET.get('page', 0)
         if page == 0:
             page = 1
