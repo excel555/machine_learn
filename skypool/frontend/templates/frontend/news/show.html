@@ -29,9 +29,9 @@
                   </div>
                   <p style="overflow: hidden;">{{activity.brand.info}}</p>
                   <div>
-                    {% for var1 in activity.distinct_params %}
+                    {% for name in activity.distinct_params %}
                     <div class="chip">
-                        <span>{{var1.name}}</span>
+                        <span>{{name}}</span>
                     </div>
                     {% endfor %}
                   </div>
