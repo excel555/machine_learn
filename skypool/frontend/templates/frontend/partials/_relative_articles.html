@@ -1,36 +1,25 @@
 <div class="author-box">
-    <!--Name-->
     <h6 class="h6-responsive text-center">相似文章推荐</h6>
     <hr>
-    <div class="row article-row-wrap" data-url="/news/2/">
+    {% for article in articles %}
+    <div class="row article-row-wrap">
         <!--Avatar-->
-        <div class="col-12 col-sm-4">
-            <a href="{% url 'brand-show' 1 %}" title="">
-              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="Material Design for Bootstrap - example photo">
+        <!-- <div class="col-12 col-sm-4">
+            <a href="#" title="">
+              <img src="{{article.cover.url}}" class="img-fluid rounded-circle z-depth-2" alt="">
             </a>
-        </div>
+        </div> -->
         <!--Author Data-->
-        <div class="col-12 col-sm-8">
+        <div class="col-12 col-sm-12">
             <p>
-                <a href="{% url 'article-show' 1 %}" title=""><strong>John Doe</strong></a>
+                <a href="{% url 'article-show' article.id %}" title=""><strong>{{article.title}}</strong></a>
             </p>
-            <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+            <p style="font-size: 10px;">{{article.content|truncatechars:60}}</p>
         </div>
     </div>
+    {% if not forloop.last %}
     <hr class="extra-margin my-2">
-    <div class="row article-row-wrap" data-url="/news/3/">
-        <!--Avatar-->
-        <div class="col-12 col-sm-4">
-            <a href="{% url 'brand-show' 1 %}" title="">
-              <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="Material Design for Bootstrap - example photo">
-            </a>
-        </div>
-        <!--Author Data-->
-        <div class="col-12 col-sm-8">
-            <p>
-                <a href="{% url 'article-show' 1 %}" title=""><strong>John Doe</strong></a>
-            </p>
-            <p style="font-size: 10px;">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-        </div>
-    </div>
+    {% endif %}
+    {% endfor %}
+
 </div>

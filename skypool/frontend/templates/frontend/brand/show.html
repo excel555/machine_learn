@@ -18,44 +18,50 @@
             <div class="row">
                 <!--Avatar-->
                 <div class="col-12 col-sm-2">
-                    <a href="/brand/1" title="">
-                      <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="">
+                    <a href="{% url 'brand-show' brand_obj.id }}" title="">
+                      <img src="{{ brand_obj.logo.url }}" class="img-fluid rounded-circle z-depth-2" alt="">
                       <div class="mask waves-effect waves-light"></div>
                     </a>
                 </div>
                 <!--Author Data-->
                 <div class="col-12 col-sm-10">
                     <p>
-                        <strong>John Doe</strong>
+                        <strong>{{brand_obj.name}}</strong>
                     </p>
                     <div class="personal-sm">
-                        <a class="email-ic">
+                        <a class="email-ic" href="#">
                             <i class="fa fa-home"> </i>
                         </a>
-                        <a class="fb-ic">
+                        <a class="fb-ic" href="#">
                             <i class="fa fa-facebook"> </i>
                         </a>
-                        <a class="tw-ic">
+                        <a class="tw-ic" href="#">
                             <i class="fa fa-twitter"> </i>
                         </a>
-                        <a class="gplus-ic">
+                        <a class="gplus-ic" href="#">
                             <i class="fa fa-google-plus"> </i>
                         </a>
-                        <a class="li-ic">
+                        <a class="li-ic" href="#">
                             <i class="fa fa-linkedin"> </i>
                         </a>
-                        <a class="email-ic">
+                        <a class="email-ic" href="#">
+                            <i class="fa fa-envelope-o"> </i>
+                        </a>
+                        <a class="li-ic" href="#">
+                            <i class="fa fa-linkedin"> </i>
+                        </a>
+                        <a class="email-ic" href="#">
                             <i class="fa fa-envelope-o"> </i>
                         </a>
                     </div>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                    <p style="overflow: hidden;">{{brand_obj.info}}</p>
                     <div>
-                      <div class="chip">
+                      <!-- <div class="chip">
                           <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
                       </div>
                       <div class="chip">
                           <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
-                      </div>
+                      </div> -->
                     </div>
                 </div>
             </div>
@@ -95,7 +101,7 @@
         // },
         tooltip: {},
         legend: {
-            data: ['可口可乐']
+            data: ['{{brand.name}}']
         },
         radar: {
             // shape: 'circle',
@@ -108,12 +114,12 @@
                }
             },
             indicator: [
-               { name: '曝光度', max: 6500},
-               { name: '美誉度', max: 16000},
-               { name: '销售量', max: 3000},
-               { name: '互动', max: 3800},
-               { name: '知名度', max: 5200},
-               { name: '流行度', max: 2500}
+               { name: '曝光度', max: 10},
+               { name: '美誉度', max: 10},
+               { name: '销售量', max: 10},
+               { name: '互动', max: 10},
+               { name: '知名度', max: 10},
+               { name: '流行度', max: 10}
             ]
         },
         series: [{
@@ -134,8 +140,8 @@
                             }},
             data : [
                 {
-                    value : [4300, 10000, 2800, 3500, 5000, 1900],
-                    name : '可口可乐'
+                    value : {{brand.figure}},
+                    name : "{{brand.name}}",
                 }
             ]
         }]

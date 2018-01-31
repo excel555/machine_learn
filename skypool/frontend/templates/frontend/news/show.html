@@ -17,41 +17,23 @@
           <div class="row">
               <!--Avatar-->
               <div class="col-12 col-sm-2">
-                  <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(29).jpg" class="img-fluid rounded-circle z-depth-2" alt="Material Design for Bootstrap - example photo">
+                  <img src="{{activity.brand.logo.url}}" class="img-fluid rounded-circle z-depth-2" alt="">
               </div>
               <!--Author Data-->
               <div class="col-12 col-sm-10">
                   <p>
-                      <strong>John Doe</strong>
+                      <strong>{{activity.intent}}</strong>
                   </p>
                   <div class="personal-sm">
-                      <a class="email-ic">
-                          <i class="fa fa-home"> </i>
-                      </a>
-                      <a class="fb-ic">
-                          <i class="fa fa-facebook"> </i>
-                      </a>
-                      <a class="tw-ic">
-                          <i class="fa fa-twitter"> </i>
-                      </a>
-                      <a class="gplus-ic">
-                          <i class="fa fa-google-plus"> </i>
-                      </a>
-                      <a class="li-ic">
-                          <i class="fa fa-linkedin"> </i>
-                      </a>
-                      <a class="email-ic">
-                          <i class="fa fa-envelope-o"> </i>
-                      </a>
+                      <p>{{activity.create_time}}</p>
                   </div>
-                  <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                  <p style="overflow: hidden;">{{activity.brand.info}}</p>
                   <div>
+                    {% for var1 in activity.params %}
                     <div class="chip">
                         <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
                     </div>
-                    <div class="chip">
-                        <img src="https://mdbootstrap.com/img/Photos/Categories/Components/img(32).jpg" alt="Contact Person"> Jerry Black
-                    </div>
+                    {% endfor %}
                   </div>
               </div>
           </div>
@@ -59,19 +41,19 @@
           <div class="author-box">
             <div class="row">
               <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
+                <div class="zcanvas zrelated-canvas" data-value='{{activity.popularity_score}}'>
                   <span class="value">98分</span>
                   <span class="text">知名度</span>
                 </div>
               </div>
               <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas emotion-canvas" data-value='0.98'>
+                <div class="zcanvas zrelated-canvas" data-value='{{activity.figure_score}}'>
                   <span class="value">98</span>
                   <span class="text">品牌形象</span>
                 </div>
               </div>
               <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
+                <div class="zcanvas zrelated-canvas" data-value='{{activity.market_score}}'>
                   <span class="value">98</span>
                   <span class="text">市场潜力</span>
                 </div>
@@ -79,13 +61,13 @@
             </div>
             <div class="row">
               <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
+                <div class="zcanvas zrelated-canvas" data-value='{{activity.innovation_score}}'>
                   <span class="value">98分</span>
                   <span class="text">创新性</span>
                 </div>
               </div>
               <div class="data-box col-12 col-sm-3">
-                <div class="zcanvas zrelated-canvas" data-value='0.98'>
+                <div class="zcanvas zrelated-canvas" data-value='{{activity.capital_score}}'>
                   <span class="value">98分</span>
                   <span class="text">资本性</span>
                 </div>
@@ -117,7 +99,7 @@
         // },
         tooltip: {},
         legend: {
-            data: ['可口可乐']
+            data: ['{{brand.name}}']
         },
         radar: {
             // shape: 'circle',
@@ -130,12 +112,12 @@
                }
             },
             indicator: [
-               { name: '曝光度', max: 6500},
-               { name: '美誉度', max: 16000},
-               { name: '销售量', max: 3000},
-               { name: '互动', max: 3800},
-               { name: '知名度', max: 5200},
-               { name: '流行度', max: 2500}
+               { name: '曝光度', max: 10},
+               { name: '美誉度', max: 10},
+               { name: '销售量', max: 10},
+               { name: '互动', max: 10},
+               { name: '知名度', max: 10},
+               { name: '流行度', max: 10}
             ]
         },
         series: [{
@@ -156,8 +138,8 @@
                             }},
             data : [
                 {
-                    value : [4300, 10000, 2800, 3500, 5000, 1900],
-                    name : '可口可乐'
+                    value : {{brand.figure}},
+                    name : "{{brand.name}}",
                 }
             ]
         }]
@@ -179,7 +161,7 @@
             fill: {
                 color: '#3bbf69'
             },
-            emptyFill: '#FFF'
+            emptyFill: '#f57c00'
         }).on('circle-animation-progress', function(event, progress, stepValue) {
             $(this).find('.value').html(parseInt(stepValue * 100) + '分');
         });
